@@ -3,7 +3,7 @@
 .classpath
 .project
 .settings/
-target/
+java/target/
 nbproject/
 nb-configuration.xml
 bin/
@@ -11,3 +11,7 @@ local.properties
 project.properties
 csharp/code-smell/obj/
 csharp/code-smell.UnitTests/obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
