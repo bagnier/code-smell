@@ -4,49 +4,49 @@ namespace code_smell
 {
     public class Account
     {
-        private readonly int daysOverdrawn;
-        private readonly AccountType type;
+        private readonly int _daysOverdrawn;
+        private readonly AccountType _type;
 
-        private Customer customer;
-        private String iban;
-        private Money money;
+        private Customer _customer;
+        private String _iban;
+        private Money _money;
 
         public Account(AccountType type, int daysOverdrawn)
         {
-            this.type = type;
-            this.daysOverdrawn = daysOverdrawn;
+            this._type = type;
+            this._daysOverdrawn = daysOverdrawn;
         }
 
-        public double bankcharge()
+        public double Bankcharge()
         {
             double result = 4.5;
 
-            result += overdraftCharge();
+            result += OverdraftCharge();
 
             return result;
         }
 
-        private double overdraftCharge()
+        private double OverdraftCharge()
         {
-            if (type.isPremium())
+            if (_type.isPremium())
             {
                 double result = 10;
-                if (getDaysOverdrawn() > 7)
+                if (GetDaysOverdrawn() > 7)
                 {
-                    result += (getDaysOverdrawn() - 7)*1.0;
+                    result += (GetDaysOverdrawn() - 7)*1.0;
                 }
 
                 return result;
             }
             else
             {
-                return getDaysOverdrawn()*1.75;
+                return GetDaysOverdrawn()*1.75;
             }
         }
 
-        public double overdraftFee()
+        public double OverdraftFee()
         {
-            if (type.isPremium())
+            if (_type.isPremium())
             {
                 return 0.10;
             }
@@ -56,54 +56,54 @@ namespace code_smell
             }
         }
 
-        public int getDaysOverdrawn()
+        public int GetDaysOverdrawn()
         {
-            return daysOverdrawn;
+            return _daysOverdrawn;
         }
 
-        public String getIban()
+        public String GetIban()
         {
-            return iban;
+            return _iban;
         }
 
-        public void setIban(String iban)
+        public void SetIban(String iban)
         {
-            this.iban = iban;
+            this._iban = iban;
         }
 
-        public void setMoney(Money money)
+        public void SetMoney(Money money)
         {
-            this.money = money;
+            this._money = money;
         }
 
-        public Customer getCustomer()
+        public Customer GetCustomer()
         {
-            return customer;
+            return _customer;
         }
 
         public void setCustomer(Customer customer)
         {
-            this.customer = customer;
+            this._customer = customer;
         }
 
-        public AccountType getAccountType()
+        public AccountType GetAccountType()
         {
-            return type;
+            return _type;
         }
 
-        public bool isOverdraft()
+        public bool IsOverdraft()
         {
-            return money.getAmount() < 0;
+            return _money.getAmount() < 0;
         }
 
-        public void substract(Money money)
+        public void Substract(Money money)
         {
-            this.money = this.money.substract(money);
+            this._money = this._money.substract(money);
         }
 
-        public double getMoneyAmount()
+        public double GetMoneyAmount()
         {
-            return money.getAmount();
+            return _money.getAmount();
         }
     }
 }

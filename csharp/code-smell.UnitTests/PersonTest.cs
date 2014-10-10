@@ -5,42 +5,42 @@ namespace code_smell.UnitTests
     [TestFixture]
     public class PersonTest
     {
-        public static Money SOME_EURO = Money.newEuro(10);
+        public static Money SomeEuro = Money.newEuro(10);
 
         [Test]
-        public void testWithdrawPersonWithNormalAccount()
+        public void TestWithdrawPersonWithNormalAccount()
         {
-            Account account = AccountTestUtils.getAccountByTypeAndMoney(false, 34.0);
-            Customer customer = CustomerTestUtils.getPersonCustomer(account);
-            customer.withdraw(SOME_EURO);
-            Assert.That(account.getMoneyAmount(), Is.EqualTo(24.0));
+            Account account = AccountTestUtils.GetAccountByTypeAndMoney(false, 34.0);
+            Customer customer = CustomerTestUtils.GetPersonCustomer(account);
+            customer.Withdraw(SomeEuro);
+            Assert.That(account.GetMoneyAmount(), Is.EqualTo(24.0));
         }
 
         [Test]
-        public void testWithdrawPersonWithNormalAccountAndOverdraft()
+        public void TestWithdrawPersonWithNormalAccountAndOverdraft()
         {
-            Account account = AccountTestUtils.getAccountByTypeAndMoney(false, -10.0);
-            Customer customer = CustomerTestUtils.getPersonCustomer(account);
-            customer.withdraw(SOME_EURO);
-            Assert.That(account.getMoneyAmount(), Is.EqualTo(-22.0));
+            Account account = AccountTestUtils.GetAccountByTypeAndMoney(false, -10.0);
+            Customer customer = CustomerTestUtils.GetPersonCustomer(account);
+            customer.Withdraw(SomeEuro);
+            Assert.That(account.GetMoneyAmount(), Is.EqualTo(-22.0));
         }
 
         [Test]
-        public void testWithdrawPersonWithPremiumAccount()
+        public void TestWithdrawPersonWithPremiumAccount()
         {
-            Account account = AccountTestUtils.getAccountByTypeAndMoney(true, 34.0);
-            Customer customer = CustomerTestUtils.getPersonCustomer(account);
-            customer.withdraw(SOME_EURO);
-            Assert.That(account.getMoneyAmount(), Is.EqualTo(24.0));
+            Account account = AccountTestUtils.GetAccountByTypeAndMoney(true, 34.0);
+            Customer customer = CustomerTestUtils.GetPersonCustomer(account);
+            customer.Withdraw(SomeEuro);
+            Assert.That(account.GetMoneyAmount(), Is.EqualTo(24.0));
         }
 
         [Test]
-        public void testWithdrawPersonWithPremiumAccountAndOverdraft()
+        public void TestWithdrawPersonWithPremiumAccountAndOverdraft()
         {
-            Account account = AccountTestUtils.getAccountByTypeAndMoney(true, -10.0);
-            Customer customer = CustomerTestUtils.getPersonCustomer(account);
-            customer.withdraw(SOME_EURO);
-            Assert.That(account.getMoneyAmount(), Is.EqualTo(-21.0));
+            Account account = AccountTestUtils.GetAccountByTypeAndMoney(true, -10.0);
+            Customer customer = CustomerTestUtils.GetPersonCustomer(account);
+            customer.Withdraw(SomeEuro);
+            Assert.That(account.GetMoneyAmount(), Is.EqualTo(-21.0));
         }
     }
 }

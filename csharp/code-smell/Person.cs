@@ -4,44 +4,44 @@ namespace code_smell
 {
     public class Person : Customer
     {
-        protected String surname;
+        protected String Surname;
 
         public Person(String name, String surname, String email, Account account) : base(name, email, account)
         {
-            this.surname = surname;
+            this.Surname = surname;
         }
 
-        public override void withdraw(Money money)
+        public override void Withdraw(Money money)
         {
-            if (account.getAccountType().isPremium())
+            if (Account.GetAccountType().isPremium())
             {
-                if (account.isOverdraft())
+                if (Account.IsOverdraft())
                 {
-                    account.substract(Money.newInstance(money.getAmount() + money.getAmount()*account.overdraftFee(),
+                    Account.Substract(Money.newInstance(money.getAmount() + money.getAmount()*Account.OverdraftFee(),
                                                         money.getCurrency()));
                 }
                 else
                 {
-                    account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+                    Account.Substract(Money.newInstance(money.getAmount(), money.getCurrency()));
                 }
             }
             else
             {
-                if (account.isOverdraft())
+                if (Account.IsOverdraft())
                 {
-                    account.substract(Money.newInstance(money.getAmount() + money.getAmount()*account.overdraftFee(),
+                    Account.Substract(Money.newInstance(money.getAmount() + money.getAmount()*Account.OverdraftFee(),
                                                         money.getCurrency()));
                 }
                 else
                 {
-                    account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+                    Account.Substract(Money.newInstance(money.getAmount(), money.getCurrency()));
                 }
             }
         }
 
-        internal override String getFullName()
+        internal override String GetFullName()
         {
-            return name + " " + surname + " ";
+            return Name + " " + Surname + " ";
         }
     }
 }

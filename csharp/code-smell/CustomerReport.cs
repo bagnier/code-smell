@@ -4,13 +4,13 @@ namespace code_smell
 {
     public class CustomerReport
     {
-        private readonly Account account;
-        private readonly Customer customer;
+        private readonly Account _account;
+        private readonly Customer _customer;
 
         public CustomerReport(Customer customer, Account account)
         {
-            this.customer = checkNotNull(customer);
-            this.account = checkNotNull(account);
+            this._customer = checkNotNull(customer);
+            this._account = checkNotNull(account);
         }
 
         private T checkNotNull<T>(T instance)
@@ -19,34 +19,34 @@ namespace code_smell
             return instance;
         }
 
-        public String printCustomerDaysOverdrawn()
+        public String PrintCustomerDaysOverdrawn()
         {
-            String fullName = customer.getFullName();
+            String fullName = _customer.GetFullName();
 
-            String accountDescription = "Account: IBAN: " + account.getIban() + ", Days Overdrawn: "
-                                        + account.getDaysOverdrawn();
+            String accountDescription = "Account: IBAN: " + _account.GetIban() + ", Days Overdrawn: "
+                                        + _account.GetDaysOverdrawn();
             return fullName + accountDescription;
         }
 
-        public String printCustomerMoney()
+        public String PrintCustomerMoney()
         {
-            String fullName = customer.getFullName();
+            String fullName = _customer.GetFullName();
             String accountDescription = "";
-            accountDescription += "Account: IBAN: " + account.getIban() + ", Money: " +
-                                  String.Format("{0:0.0}", account.getMoneyAmount());
+            accountDescription += "Account: IBAN: " + _account.GetIban() + ", Money: " +
+                                  String.Format("{0:0.0}", _account.GetMoneyAmount());
             return fullName + accountDescription;
         }
 
-        public String printCustomerAccount()
+        public String PrintCustomerAccount()
         {
-            return "Account: IBAN: " + account.getIban() + ", Money: " +
-                   String.Format("{0:0.0}", account.getMoneyAmount()) + ", Account type: "
-                   + account.getAccountType();
+            return "Account: IBAN: " + _account.GetIban() + ", Money: " +
+                   String.Format("{0:0.0}", _account.GetMoneyAmount()) + ", Account type: "
+                   + _account.GetAccountType();
         }
 
-        public String printCustomer()
+        public String PrintCustomer()
         {
-            return customer.getName() + " " + customer.getEmail();
+            return _customer.GetName() + " " + _customer.GetEmail();
         }
     }
 }

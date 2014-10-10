@@ -4,49 +4,49 @@ namespace code_smell
 {
     public class Company : Customer
     {
-        protected double companyOverdraftDiscount = 1;
+        protected double CompanyOverdraftDiscount = 1;
 
         public Company(String name, String email, Account account, double companyOverdraftDiscount)
             : base(name, email, account)
         {
-            this.companyOverdraftDiscount = companyOverdraftDiscount;
+            this.CompanyOverdraftDiscount = companyOverdraftDiscount;
         }
 
-        public override void withdraw(Money money)
+        public override void Withdraw(Money money)
         {
-            if (account.getAccountType().isPremium())
+            if (Account.GetAccountType().isPremium())
             {
-                if (account.isOverdraft())
+                if (Account.IsOverdraft())
                 {
                     // 50 percent discount for overdraft for premium account
-                    account.substract(Money.newInstance(
-                        money.getAmount() + money.getAmount()*account.overdraftFee()*companyOverdraftDiscount/2,
+                    Account.Substract(Money.newInstance(
+                        money.getAmount() + money.getAmount()*Account.OverdraftFee()*CompanyOverdraftDiscount/2,
                         money.getCurrency()));
                 }
                 else
                 {
-                    account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+                    Account.Substract(Money.newInstance(money.getAmount(), money.getCurrency()));
                 }
             }
             else
             {
-                if (account.isOverdraft())
+                if (Account.IsOverdraft())
                 {
                     // no discount for overdraft for not premium account
-                    account.substract(Money.newInstance(
-                        money.getAmount() + money.getAmount()*account.overdraftFee()*companyOverdraftDiscount,
+                    Account.Substract(Money.newInstance(
+                        money.getAmount() + money.getAmount()*Account.OverdraftFee()*CompanyOverdraftDiscount,
                         money.getCurrency()));
                 }
                 else
                 {
-                    account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+                    Account.Substract(Money.newInstance(money.getAmount(), money.getCurrency()));
                 }
             }
         }
 
-        internal override String getFullName()
+        internal override String GetFullName()
         {
-            return name;
+            return Name;
         }
     }
 }

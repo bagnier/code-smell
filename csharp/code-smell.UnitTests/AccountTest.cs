@@ -6,12 +6,12 @@ namespace code_smell.UnitTests
     public class AccountTest
     {
         [SetUp]
-        public void setUp()
+        public void SetUp()
         {
-            customerFactory = new CustomerFactory();
+            _customerFactory = new CustomerFactory();
         }
 
-        private CustomerFactory customerFactory;
+        private CustomerFactory _customerFactory;
 
         private Account getNormalAccount()
         {
@@ -26,34 +26,34 @@ namespace code_smell.UnitTests
         }
 
         [Test]
-        public void testBankchargePremiumLessThanAWeek()
+        public void TestBankchargePremiumLessThanAWeek()
         {
             Account account = getPremiumAccount(5);
-            Assert.That(account.bankcharge(), Is.EqualTo(14.5))
+            Assert.That(account.Bankcharge(), Is.EqualTo(14.5))
                 ;
         }
 
         [Test]
-        public void testBankchargePremiumMoreThanAWeek()
+        public void TestBankchargePremiumMoreThanAWeek()
         {
             Account account = getPremiumAccount(9);
-            Assert.That(account.bankcharge(), Is.EqualTo(16.5))
+            Assert.That(account.Bankcharge(), Is.EqualTo(16.5))
                 ;
         }
 
         [Test]
-        public void testOverdraftFeeNotPremium()
+        public void TestOverdraftFeeNotPremium()
         {
             Account account = getNormalAccount();
-            Assert.That(account.overdraftFee(), Is.EqualTo(0.20))
+            Assert.That(account.OverdraftFee(), Is.EqualTo(0.20))
                 ;
         }
 
         [Test]
-        public void testOverdraftFeePremium()
+        public void TestOverdraftFeePremium()
         {
             Account account = getPremiumAccount(9);
-            Assert.That(account.overdraftFee(), Is.EqualTo(0.10))
+            Assert.That(account.OverdraftFee(), Is.EqualTo(0.10))
                 ;
         }
     }

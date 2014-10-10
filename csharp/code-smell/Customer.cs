@@ -4,39 +4,39 @@ namespace code_smell
 {
     public abstract class Customer
     {
-        protected Account account;
-        protected String email;
-        protected String name;
+        protected Account Account;
+        protected String Email;
+        protected String Name;
 
         internal Customer(String name, String email, Account account)
         {
-            this.name = name;
-            this.email = email;
-            this.account = account;
+            this.Name = name;
+            this.Email = email;
+            this.Account = account;
         }
 
-        public abstract void withdraw(Money money);
+        public abstract void Withdraw(Money money);
 
-        internal abstract String getFullName();
+        internal abstract String GetFullName();
 
-        public String getName()
+        public String GetName()
         {
-            return name;
+            return Name;
         }
 
-        public void setName(String name)
+        public void SetName(String name)
         {
-            this.name = name;
+            this.Name = name;
         }
 
-        public String getEmail()
+        public String GetEmail()
         {
-            return email;
+            return Email;
         }
 
-        public void setEmail(String email)
+        public void SetEmail(String email)
         {
-            this.email = email;
+            this.Email = email;
         }
     }
 }
