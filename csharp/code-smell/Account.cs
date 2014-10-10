@@ -13,8 +13,8 @@ namespace code_smell
 
         public Account(AccountType type, int daysOverdrawn)
         {
-            this._type = type;
-            this._daysOverdrawn = daysOverdrawn;
+            _type = type;
+            _daysOverdrawn = daysOverdrawn;
         }
 
         public double Bankcharge()
@@ -68,12 +68,12 @@ namespace code_smell
 
         public void SetIban(String iban)
         {
-            this._iban = iban;
+            _iban = iban;
         }
 
         public void SetMoney(Money money)
         {
-            this._money = money;
+            _money = money;
         }
 
         public Customer GetCustomer()
@@ -83,7 +83,7 @@ namespace code_smell
 
         public void setCustomer(Customer customer)
         {
-            this._customer = customer;
+            _customer = customer;
         }
 
         public AccountType GetAccountType()
@@ -98,7 +98,7 @@ namespace code_smell
 
         public void Substract(Money money)
         {
-            this._money = this._money.substract(money);
+            _money = _money.substract(money);
         }
 
         public double GetMoneyAmount()

@@ -8,7 +8,7 @@ namespace code_smell
 
         public Person(String name, String surname, String email, Account account) : base(name, email, account)
         {
-            this.Surname = surname;
+            Surname = surname;
         }
 
         public override void Withdraw(Money money)

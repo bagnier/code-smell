@@ -10,9 +10,9 @@ namespace code_smell
 
         internal Customer(String name, String email, Account account)
         {
-            this.Name = name;
-            this.Email = email;
-            this.Account = account;
+            Name = name;
+            Email = email;
+            Account = account;
         }
 
         public abstract void Withdraw(Money money);
@@ -26,7 +26,7 @@ namespace code_smell
 
         public void SetName(String name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public String GetEmail()
@@ -36,7 +36,7 @@ namespace code_smell
 
         public void SetEmail(String email)
         {
-            this.Email = email;
+            Email = email;
         }
     }
 }

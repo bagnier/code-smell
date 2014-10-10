@@ -9,8 +9,8 @@ namespace code_smell
 
         public CustomerReport(Customer customer, Account account)
         {
-            this._customer = checkNotNull(customer);
-            this._account = checkNotNull(account);
+            _customer = checkNotNull(customer);
+            _account = checkNotNull(account);
         }
 
         private T checkNotNull<T>(T instance)

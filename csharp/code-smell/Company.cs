@@ -9,7 +9,7 @@ namespace code_smell
         public Company(String name, String email, Account account, double companyOverdraftDiscount)
             : base(name, email, account)
         {
-            this.CompanyOverdraftDiscount = companyOverdraftDiscount;
+            CompanyOverdraftDiscount = companyOverdraftDiscount;
         }
 
         public override void Withdraw(Money money)
