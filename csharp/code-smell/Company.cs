@@ -14,7 +14,7 @@ namespace code_smell
 
         public override void Withdraw(Money money)
         {
-            if (Account.GetAccountType().isPremium())
+            if (Account.GetAccountType().IsPremium())
             {
                 if (Account.IsOverdraft())
                 {

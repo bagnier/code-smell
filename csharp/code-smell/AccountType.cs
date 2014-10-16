@@ -11,7 +11,7 @@ namespace code_smell
             this.premium = premium;
         }
 
-        public bool isPremium()
+        public bool IsPremium()
         {
             return premium;
         }

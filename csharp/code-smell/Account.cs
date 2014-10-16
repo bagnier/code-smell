@@ -28,7 +28,7 @@ namespace code_smell
 
         private double OverdraftCharge()
         {
-            if (_type.isPremium())
+            if (_type.IsPremium())
             {
                 double result = 10;
                 if (GetDaysOverdrawn() > 7)
@@ -46,7 +46,7 @@ namespace code_smell
 
         public double OverdraftFee()
         {
-            if (_type.isPremium())
+            if (_type.IsPremium())
             {
                 return 0.10;
             }

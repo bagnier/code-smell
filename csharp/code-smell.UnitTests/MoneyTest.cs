@@ -6,7 +6,7 @@ namespace code_smell.UnitTests
     public class MoneyTest
     {
         [Test]
-        public void testSubstract()
+        public void TestSubstract()
         {
             Money difference = Money.newEuro(20.0).substract(Money.newEuro(10.0));
             Assert.That(difference.getAmount(), Is.EqualTo(10.0));
@@ -15,13 +15,13 @@ namespace code_smell.UnitTests
 
         [Test]
         [ExpectedException]
-        public void testSubstractDifferentCurrencies()
+        public void TestSubstractDifferentCurrencies()
         {
             Money.newEuro(20.0).substract(Money.newInstance(10.0, "USD"));
         }
 
         [Test]
-        public void testSubstractNegative()
+        public void TestSubstractNegative()
         {
             Money difference = Money.newEuro(20.0).substract(Money.newEuro(100.0));
             Assert.That(difference.getAmount(), Is.EqualTo(-80.0));
