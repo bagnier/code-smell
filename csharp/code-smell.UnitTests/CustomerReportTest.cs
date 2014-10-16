@@ -2,6 +2,7 @@ using NUnit.Framework;
 
 namespace code_smell.UnitTests
 {
+    [SetCulture("en")]
     [TestFixture]
     public class CustomerReportTest
     {
